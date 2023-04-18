@@ -137,6 +137,7 @@ public class XxlMqClientFactory  {
         XxlRegistryServiceRegistry commonServiceRegistry = (XxlRegistryServiceRegistry) xxlRpcInvokerFactory.getServiceRegistry();
         consumerRegistryHelper = new ConsumerRegistryHelper(commonServiceRegistry);
 
+        String address = "127.0.0.1:7080";
         // init IXxlMqBroker
         xxlMqBroker = (IXxlMqBroker) new XxlRpcReferenceBean(
                 NetEnum.NETTY,
@@ -146,7 +147,7 @@ public class XxlMqClientFactory  {
                 IXxlMqBroker.class,
                 null,
                 10000,
-                null,
+                address,
                 null,
                 null,
                 xxlRpcInvokerFactory).getObject();
